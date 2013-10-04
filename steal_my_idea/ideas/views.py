@@ -1,11 +1,15 @@
 from django.http import HttpResponse
+from django.template import RequestContext, loader
 
 from ideas.models import Idea
 
 def index(request):
-    latest_ideas = Idea.objects.order_by('-date_published')[:3]
-    output = ', '.join([i.title for i in latest_ideas])
-    return HttpResponse(output)
+    latest_idea_list = Idea.objects.order_by('-date_published')[:3]
+    template = loader.get_template('ideas/index.html')
+    context = RequestContext(request, {
+        'latest_idea_list': latest_idea_list,
+    })
+    return HttpResponse(template.render(context))
 
 def home(request):
     return HttpResponse('Home of Ideas to Steal!')
