@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from ideas.models import Idea
 
@@ -12,7 +12,8 @@ def home(request):
     return HttpResponse('Home of Ideas to Steal!')
 
 def single(request, idea_id):
-    return HttpResponse('Single Idea to Steal!')
+    idea = get_object_or_404(Idea, pk=idea_id)
+    return render(request, 'ideas/single.html', {'idea': idea})
 
 def upvote(request, idea_id):
     return HttpResponse('Single Idea Successfully Up Voted!')
