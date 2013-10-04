@@ -111,6 +111,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    '/users/gpadmin/sites/smi/steal_my_idea/templates' # development path, don't forget to add production!
 )
 
 INSTALLED_APPS = (
