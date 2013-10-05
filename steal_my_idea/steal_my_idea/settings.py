@@ -1,6 +1,6 @@
 # Django settings for steal_my_idea project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
