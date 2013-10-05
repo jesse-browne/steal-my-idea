@@ -16,13 +16,7 @@ class Idea(models.Model):
     date_published = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     author_wants = models.CharField(max_length=2, choices=AUTHOR_WANTS_OPTIONS, default=EXECUTION)
+    votes = models.IntegerField(default=0)
     
     def __unicode__(self):
         return self.title
-    
-class UpVotes(models.Model):
-    idea = models.ForeignKey(Idea)
-    votes = models.IntegerField(default=0)
-
-    def __unicode__(self):
-        return self.votes
