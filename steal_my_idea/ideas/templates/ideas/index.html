@@ -1,7 +1,7 @@
 {% if latest_idea_list %}
     
     {% for idea in latest_idea_list %}
-    <div><a href='/ideas/{{ idea.id }}/'>{{ idea.title }}</a></div>
+    <div><a href="{% url 'ideas:single' idea.id %}">{{ idea.title }}</a></div>
     {% endfor %}
     
 {% else %}
