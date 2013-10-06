@@ -5,13 +5,21 @@ from django.views import generic
 
 from ideas.models import Idea
 
+class HomeView(generic.ListView):
+    template_name = 'ideas/home.html'
+    context_object_name = 'latest_idea_list'
+    
+    def get_queryset(self):
+        """Get most recent three ideas."""
+        return Idea.objects.order_by('-date_published')[:4]
+
 class IndexView(generic.ListView):
     template_name = 'ideas/index.html'
     context_object_name = 'latest_idea_list'
     
     def get_queryset(self):
         """Get most recent three ideas."""
-        return Idea.objects.order_by('-date_published')[:3]
+        return Idea.objects.order_by('-date_published')[:10]
 
 class SingleView(generic.DetailView):
     model = Idea
