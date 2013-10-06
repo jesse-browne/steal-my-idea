@@ -6,4 +6,5 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^(?P<idea_id>\d+)/$', views.single, name='single'),
     url(r'^(?P<idea_id>\d+)/upvote/$', views.upvote, name='upvote'),
+    url(r'^(?P<idea_id>\d+)/results/$', views.results, name='results'),
 )
