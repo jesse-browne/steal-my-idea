@@ -3,8 +3,8 @@ from django.conf.urls import patterns, url
 from ideas import views
 
 urlpatterns = patterns('',
-    url(r'^$', views.index, name='index'),
-    url(r'^(?P<idea_id>\d+)/$', views.single, name='single'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^(?P<pk>\d+)/$', views.SingleView.as_view(), name='single'),
+    url(r'^(?P<pk>\d+)/results/$', views.ResultsView.as_view(), name='results'),
     url(r'^(?P<idea_id>\d+)/upvote/$', views.upvote, name='upvote'),
-    url(r'^(?P<idea_id>\d+)/results/$', views.results, name='results'),
 )
