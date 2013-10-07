@@ -5,6 +5,8 @@
 
 {% block branding %}
 <h1 id="site-name">{% trans 'Feed Me Ideas - May They Be Stolen and Brought to Life' %}</h1>
+<br />
+<h2>New user? <a href="{% url 'ideas:adduser' %}">Create account</a></h2>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
