@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from forms import UserForm
-from django.contrib.auth import login
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User, Group
 
 from ideas.models import Idea
@@ -51,8 +51,13 @@ def adduser(request):
             else:
                 new_user.groups.add(group)
             new_user.save()
-            # would like to login and redirect to create idea page 
-            # but haven't got that working yet
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            # login and redirect to admin interface
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
             return HttpResponseRedirect(reverse('admin:index'))
     else:
         form = UserForm() 

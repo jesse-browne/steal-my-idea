@@ -59,7 +59,7 @@
             {% load log %}
             {% get_admin_log 10 as admin_log for_user user %}
             {% if not admin_log %}
-            <p>{% trans 'None available' %}</p>
+            <p>{% trans 'Nothing yet.' %}</p>
             {% else %}
             <ul class="actionlist">
             {% for entry in admin_log %}
