@@ -8,4 +8,6 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/$', views.SingleView.as_view(), name='single'),
     url(r'^(?P<pk>\d+)/results/$', views.ResultsView.as_view(), name='results'),
     url(r'^(?P<idea_id>\d+)/upvote/$', views.upvote, name='upvote'),
+    url(r'^adduser/$', views.adduser, name='adduser'),
 )
+

@@ -2,6 +2,9 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from forms import UserForm
+from django.contrib.auth import login
+from django.contrib.auth.models import User, Group
 
 from ideas.models import Idea
 
@@ -34,3 +37,24 @@ def upvote(request, idea_id):
     i.votes += 1
     i.save()
     return HttpResponseRedirect(reverse('ideas:results', args=(i.id,)))
+
+def adduser(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            new_user = User.objects.create_user(**form.cleaned_data)
+            new_user.is_staff = True
+            try:
+                group = Group.objects.get(name='Members')
+            except Group.DoesNotExist:
+                pass
+            else:
+                new_user.groups.add(group)
+            new_user.save()
+            # would like to login and redirect to create idea page 
+            # but haven't got that working yet
+            return HttpResponseRedirect(reverse('admin:index'))
+    else:
+        form = UserForm() 
+
+    return render(request, 'ideas/adduser.html', {'form': form}) 

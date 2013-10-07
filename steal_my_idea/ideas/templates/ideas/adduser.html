@@ -1,0 +1,8 @@
+{% include 'ideas/header.html' %}
+<form method="post" action="">
+{% csrf_token %}
+    {{ form }}
+    <br />
+    <input type="submit" value="Create User Account" />
+</form>
+{% include 'ideas/footer.html' %}
