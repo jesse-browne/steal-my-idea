@@ -44,20 +44,32 @@ def adduser(request):
         if form.is_valid():
             new_user = User.objects.create_user(**form.cleaned_data)
             new_user.is_staff = True
+            
             try:
                 group = Group.objects.get(name='Members')
             except Group.DoesNotExist:
                 pass
             else:
                 new_user.groups.add(group)
+            
             new_user.save()
             username = request.POST['username']
             password = request.POST['password']
             user = authenticate(username=username, password=password)
+            
             # login and redirect to admin interface
             if user is not None:
                 if user.is_active:
                     login(request, user)
+                else:
+                    # Return to form, @TODO add a 'disabled account' error message
+                    form = UserForm()
+                    return render(request, 'ideas/adduser.html', {'form': form}) 
+            else:
+                # Return to form, @TODO add an 'invalid login' error message.
+                form = UserForm()
+                return render(request, 'ideas/adduser.html', {'form': form}) 
+            
             return HttpResponseRedirect(reverse('admin:index'))
     else:
         form = UserForm() 

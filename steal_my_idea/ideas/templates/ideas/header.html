@@ -30,10 +30,12 @@
     <div class="container">
       <a class="brand" href="{% url 'ideas:home' %}">Steal My Idea!</a>
       <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li><a href="{% url 'admin:index' %}ideas/idea/add/">Add</a></li>
-          <li><a href="{% url 'ideas:index' %}">Find</a></li>
-        </ul>         
+        <nav>
+          <ul class="nav">
+            <li><a href="{% url 'admin:index' %}ideas/idea/add/">Add</a></li>
+            <li><a href="{% url 'ideas:index' %}">Find</a></li>
+          </ul>
+        </nav>         
       </div><!--/.nav-collapse -->
     </div>
   </div>
