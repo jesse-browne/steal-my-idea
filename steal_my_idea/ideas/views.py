@@ -11,7 +11,7 @@ class HomeView(generic.ListView):
     
     def get_queryset(self):
         """Get most recent three ideas."""
-        return Idea.objects.order_by('-date_published')[:4]
+        return Idea.objects.order_by('-votes')[:4]
 
 class IndexView(generic.ListView):
     template_name = 'ideas/index.html'
@@ -19,7 +19,7 @@ class IndexView(generic.ListView):
     
     def get_queryset(self):
         """Get most recent three ideas."""
-        return Idea.objects.order_by('-date_published')[:10]
+        return Idea.objects.order_by('-votes')[:20]
 
 class SingleView(generic.DetailView):
     model = Idea

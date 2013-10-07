@@ -1,13 +1,18 @@
 {% include 'ideas/header.html' %}
 
-{% if latest_idea_list %}
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+  <h1>So, I've got this idea . . .</h1>
+  <p>Have an idea? Looking for an idea? Steal My Idea is a place where you can freely offer ideas to other people who want to make them happen. Or you can steal other people's ideas and bring them to life!</p>
+  <p>
+    <a href="{% url 'admin:index' %}ideas/idea/add/" 
+       class="btn btn-primary btn-large">Post an idea &raquo;</a> 
+    <a href="{% url 'ideas:index' %}" 
+       class="btn btn-primary btn-large">Find an idea &raquo;</a>
+  </p>
+</div>
 
-  <!-- Main hero unit for a primary marketing message or call to action -->
-  <div class="hero-unit">
-    <h1>So, I've got this idea . . .</h1>
-    <p>Have an idea? Looking for an idea? Steal My Idea is a place where you can freely offer ideas to other people who want to make them happen. Or you can steal other people's ideas and bring them to life!</p>
-    <p><a href="#" class="btn btn-primary btn-large">Post your idea &raquo;</a> &nbsp&nbsp&nbsp&nbsp<a href="#" class="btn btn-primary btn-large">Find an idea &raquo;</a></p>
-  </div>
+{% if latest_idea_list %}
  
   <div class="row">
     {% for idea in latest_idea_list %}

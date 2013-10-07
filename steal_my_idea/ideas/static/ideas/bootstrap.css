@@ -15,11 +15,11 @@
  */
 
 footer {
+  margin-top: 2em;
   width: 100%;
   float: right;
   background-color: light-grey;
 }
-
 
 p {
   margin-bottom: 15px;
@@ -807,6 +807,7 @@ h1 {
 
 h2 {
   font-size: 31.5px;
+  margin-bottom: 1em;
 }
 
 h3 {
@@ -3329,6 +3330,7 @@ button.close {
 }
 
 .btn-large {
+  margin-right: 1.5em;
   padding: 11px 19px;
   font-size: 17.5px;
   -webkit-border-radius: 6px;

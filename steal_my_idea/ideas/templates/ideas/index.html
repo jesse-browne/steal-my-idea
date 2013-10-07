@@ -1,10 +1,10 @@
 {% include 'ideas/header.html' %}
 
 {% if latest_idea_list %}
- 
+  <h2>Awesome ideas for the taking</h2>
   <div class="row">
     {% for idea in latest_idea_list %}
-    <div>
+    <div class="span">
       <h4><a href="{% url 'ideas:single' idea.id %}">{{ idea.title }}</a></h4>
       <p>{{ idea.description|slice:':75' }}...</p>
       <p><a class="btn" href="{% url 'ideas:single' idea.id %}">View details &raquo;</a></p>
