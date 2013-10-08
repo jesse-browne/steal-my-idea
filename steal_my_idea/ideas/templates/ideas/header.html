@@ -10,35 +10,34 @@
 <link rel="stylesheet" type="text/css" href="{% static 'ideas/bootstrap.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'ideas/bootstrap-responsive.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'ideas/gh-fork-ribbon.css' %}" />
+
 <!--[if IE]>
   <link rel="stylesheet" type="text/css" href="{% static 'ideas/gh-fork-ribbon.ie.css' %}" />
 <![endif]-->
-
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
   <script src="{% static 'ideas/html5shiv.js' %}"></script>
 <![endif]-->
 
-<div class="github-fork-ribbon-wrapper right">
-  <div class="github-fork-ribbon">
-    <a href="https://github.com/jesse-browne/steal-my-idea" target="_blank">Fork me on GitHub</a>
-  </div>
-</div>
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="{% url 'ideas:home' %}">Steal My Idea!</a>
-      <div class="nav-collapse collapse">
-        <nav>
-          <ul class="nav">
-            <li><a href="{% url 'admin:index' %}ideas/idea/add/">Add</a></li>
-            <li><a href="{% url 'ideas:index' %}">Find</a></li>
-          </ul>
-        </nav>         
-      </div><!--/.nav-collapse -->
+<div class="wrapper">
+  <div class="github-fork-ribbon-wrapper right">
+    <div class="github-fork-ribbon">
+      <a href="https://github.com/jesse-browne/steal-my-idea" target="_blank">Fork me on GitHub</a>
     </div>
   </div>
-</div>
-
-<div class="container">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="{% url 'ideas:home' %}">Steal My Idea!</a>
+        <div class="nav-collapse collapse">
+          <nav>
+            <ul class="nav">
+              <li><a href="{% url 'admin:index' %}ideas/idea/add/">Add</a></li>
+              <li><a href="{% url 'ideas:index' %}">Find</a></li>
+            </ul>
+          </nav>         
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <div class="container">

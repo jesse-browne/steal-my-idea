@@ -14,8 +14,33 @@
  * Yellow #
  */
 
+/** Non-boostrap additions **/
+
+/** Sticky Footer **/
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;	
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -1.5em;
+}
+
+footer, .push {
+  height: 1.5em;
+}
+
+/** End Sticky Footer **/
+
 footer {
-  margin-top: 2em;
+  margin-top: 1.5em;
   width: 100%;
   float: right;
   padding: 0.75em 0 1.5em 0;
@@ -45,6 +70,8 @@ footer nav ul li a:hover {
   color: #333333;
   text-decoration: none;
 }
+
+/** End non-bootstrap additions **/
 
 .clearfix {
   *zoom: 1;
