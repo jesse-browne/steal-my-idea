@@ -75,3 +75,6 @@ def adduser(request):
         form = UserForm() 
 
     return render(request, 'ideas/adduser.html', {'form': form}) 
+
+def about(request):
+    return render(request,'ideas/about.html')
