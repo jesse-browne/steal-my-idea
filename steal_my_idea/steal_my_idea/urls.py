@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     #url(r'^$', include('ideas.urls', namespace='ideas')),
-    url(r'^ideas-to-steal/', include('ideas.urls', namespace='ideas')),
+    #url(r'^ideas-to-steal/', include('ideas.urls', namespace='ideas')),
     url(r'^', include('ideas.urls', namespace='ideas')),
 
     # Uncomment the next line to enable the admin:
