@@ -20,3 +20,11 @@ class Idea(models.Model):
     
     def __unicode__(self):
         return self.title
+
+class Page(models.Model):
+    heading = models.CharField(max_length=200)
+    date_published = models.DateTimeField(auto_now_add=True)
+    text = models.TextField()
+    
+    def __unicode__(self):
+        return self.heading

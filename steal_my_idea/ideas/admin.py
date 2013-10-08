@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ideas.models import Idea
+from ideas.models import Idea, Page
 
 class IdeaAdmin(admin.ModelAdmin):
     list_display = ('title', 'date_published')
@@ -7,4 +7,11 @@ class IdeaAdmin(admin.ModelAdmin):
     search_fields = ['title']
     date_hierarchy = 'date_published'
 
+class PageAdmin(admin.ModelAdmin):
+    list_display = ('heading', 'date_published')
+    list_filter = ['date_published']
+    search_fields = ['heading']
+    date_hierarchy = 'date_published'    
+
 admin.site.register(Idea, IdeaAdmin)
+admin.site.register(Page, PageAdmin)

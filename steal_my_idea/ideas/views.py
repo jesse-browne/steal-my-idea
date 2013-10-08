@@ -6,7 +6,7 @@ from forms import UserForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User, Group
 
-from ideas.models import Idea
+from ideas.models import Idea, Page
 
 class HomeView(generic.ListView):
     template_name = 'ideas/home.html'
@@ -27,6 +27,10 @@ class IndexView(generic.ListView):
 class SingleView(generic.DetailView):
     model = Idea
     template_name = 'ideas/single.html'
+    
+class PageView(generic.DetailView):
+    model = Page
+    template_name = 'ideas/page.html'
 
 class ResultsView(generic.DetailView):
     model = Idea
@@ -76,5 +80,3 @@ def adduser(request):
 
     return render(request, 'ideas/adduser.html', {'form': form}) 
 
-def about(request):
-    return render(request,'ideas/about.html')
