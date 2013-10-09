@@ -8,7 +8,7 @@ class Idea(models.Model):
     EXECUTION = 'Someone, anyone to make take this idea and make it a reality'
     AUTHOR_WANTS_OPTIONS = (
         (HELP,      'help! Work with me to make this idea a reality, email me to get started.'),
-        (EXECUTION, 'someone, anyone to make take this idea and make it a reality.'),           
+        (EXECUTION, 'someone, anyone to take this idea and make it a reality.'),           
     )
     
     title = models.CharField(max_length=200)
