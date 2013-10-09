@@ -10,8 +10,8 @@
     <input type="submit" value="Up Vote This Idea" />
 </form>
 
-<div>Posted on {{ idea.date_published }}</div>
+<div>Posted by {{ idea.author.username }} on {{ idea.date_published }}</div>
 <div>{{ idea.description|linebreaks }}</div>
-<div>The author wants: {{ idea.author_wants }}</div>
+<div>The author of this idea, {{ idea.author.username }}, wants: {{ idea.author_wants }}</div>
 
 {% include 'ideas/footer.html' %}

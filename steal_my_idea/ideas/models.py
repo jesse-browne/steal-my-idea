@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Define models.
 
@@ -13,6 +14,7 @@ class Idea(models.Model):
     )
     
     title = models.CharField(max_length=200)
+    author = models.ForeignKey(User, related_name="author", editable=False)
     date_published = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     author_wants = models.CharField(max_length=100, choices=AUTHOR_WANTS_OPTIONS, default=EXECUTION)

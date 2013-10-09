@@ -6,6 +6,10 @@ class IdeaAdmin(admin.ModelAdmin):
     list_filter = ['date_published']
     search_fields = ['title']
     date_hierarchy = 'date_published'
+    
+    def save_model(self, request, obj, form, change):
+        obj.author = request.user
+        obj.save()
 
 class PageAdmin(admin.ModelAdmin):
     list_display = ('heading', 'date_published')
