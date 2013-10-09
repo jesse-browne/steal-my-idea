@@ -6,9 +6,9 @@
     <nav>
       <ul>
         <li><a href="{% url 'ideas:page' 1 %}">About</a> | </li>
-        <li><a href="#">Contact</a> | </li>
-        <li><a href="#">Intellectual Property Terms</a></li>
-        <li id="right"><a href="http://www.wtfpl.net/">
+        <li><a href="{% url 'ideas:page' 2 %}">Contact</a> | </li>
+        <li><a href="{% url 'ideas:page' 3 %}">Intellectual Property Terms</a></li>
+        <li id="right"><a href="http://www.wtfpl.net/" target='blank'>
           <img src="http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-2.png"
                width="80" height="15" alt="WTFPL" /></a></li>        
       </ul>
