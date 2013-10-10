@@ -1,8 +1,19 @@
 {% include 'ideas/header.html' %}
+<h1>Create a user account</h1>
 <form method="post" action="">
 {% csrf_token %}
     {{ form }}
     <br />
     <input type="submit" value="Create User Account" />
 </form>
+<h3>Terms of use</h3>
+<ol>
+  <li>Ideas submitted will be posted on stealmyidea.co and made publicly available 
+  under the <a href="http://www.wtfpl.net/" target="_blank">WTFPL</a>, an unrestricted, 
+  free distribution public license</li>
+  <li>By creating a user account and submitting ideas on Steal My Idea you are 
+  agreeing to these terms.</li>
+</ol>
+<div><a href="http://www.wtfpl.net/about/" target="_blank">Learn more about the WTFPL</a>.</div> 
+<div>Full text of the WTFPL is available <a href="http://www.wtfpl.net/txt/copying/" target="_blank">here</a>.</div>
 {% include 'ideas/footer.html' %}
