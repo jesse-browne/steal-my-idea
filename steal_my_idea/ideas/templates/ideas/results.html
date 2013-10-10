@@ -1,2 +1,9 @@
-<h1>{{ idea.title }}</h1>
-<div>Has {{ idea.votes }} up votes</div>
+{% include 'ideas/header.html' %}
+
+<h4>Upvote Successful</h4>
+<h4>{{ idea.title }}</h4>
+<div>Has {{ idea.votes }} up votes now</div>
+
+<!-- Maybe bypass this page entirely by redirecting from views.py -->
+
+{% include 'ideas/footer.html' %}
