@@ -40,7 +40,7 @@ def upvote(request, idea_id):
     i = get_object_or_404(Idea, pk=idea_id)
     i.votes += 1
     i.save()
-    return HttpResponseRedirect(reverse('ideas:results', args=(i.id,)))
+    return HttpResponseRedirect(reverse('ideas:single', args=(i.id,)))
 
 def adduser(request):
     if request.method == "POST":
