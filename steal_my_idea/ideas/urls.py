@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/results/$', views.ResultsView.as_view(), name='results'),
     url(r'^(?P<idea_id>\d+)/upvote/$', views.upvote, name='upvote'),
     url(r'^adduser/$', views.adduser, name='adduser'),
+    url(r'^google48059d14ad7e617c.html', views.googleverify, name='googleverify'),
 )
 

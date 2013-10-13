@@ -80,3 +80,6 @@ def adduser(request):
 
     return render(request, 'ideas/adduser.html', {'form': form}) 
 
+def googleverify(request):
+    return render(request, 'ideas/google48059d14ad7e617c.html')
+    
