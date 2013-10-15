@@ -1,5 +1,5 @@
 {% include 'ideas/header.html' %}
-
+<div id="inner-container">
 <h1>{{ idea.title }}</h1>
 <div>Up Votes {{ idea.votes }}</div>
 
@@ -16,12 +16,12 @@
     </a>
 {% endif %}
 
-<div>Posted by {{ idea.author.username }} on {{ idea.date_published }}</div>
+<p>Posted by {{ idea.author.username }} on {{ idea.date_published }}</p>
 <div>{{ idea.description|linebreaks }}</div>
-<div>{{ idea.author_wants }}</div>
+<p>{{ idea.author_wants }}.</p>
 
-{% if idea.author_wants == 'help! Work with me to make this idea a reality, email me to get started.' %}
-    <div>If you're interested reach out to me at {{ idea.author.email|urlize }}</div>
+{% if idea.author_wants == 'Help! Work with me to make this idea a reality' %}
+    <div>You can reach out to me at {{ idea.author.email|urlize }}</div>
 {% endif %}
 
 <!-- START: Livefyre Embed -->
@@ -44,5 +44,5 @@
 }());
 </script>
 <!-- END: Livefyre Embed -->
-
+</div>
 {% include 'ideas/footer.html' %}

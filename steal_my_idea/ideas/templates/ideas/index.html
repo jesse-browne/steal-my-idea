@@ -1,5 +1,6 @@
 {% include 'ideas/header.html' %}
 
+<div id="inner-container">
 {% if latest_idea_list %}
   <h2>Awesome ideas for the taking</h2>
   <div class="row">
@@ -10,10 +11,10 @@
       <p><a class="btn" href="{% url 'ideas:single' idea.id %}">View details &raquo;</a></p>
     </div>
     {% endfor %}
-  </div>
-    
+  </div>  
 {% else %}
-    <p>There are no ideas to steal right now :( </p>
+  <p>There are no ideas to steal right now :( </p>
 {% endif %}
+</div>
 
 {% include 'ideas/footer.html' %}
