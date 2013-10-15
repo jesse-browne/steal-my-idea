@@ -22,7 +22,7 @@ class IndexView(generic.ListView):
     
     def get_queryset(self):
         """Get most recent three ideas."""
-        return Idea.objects.order_by('-date-published')[:20]
+        return Idea.objects.order_by('-date_published')[:20]
 
 class SingleView(generic.DetailView):
     model = Idea
