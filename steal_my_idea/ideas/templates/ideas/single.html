@@ -18,7 +18,7 @@
 
 <div>Posted by {{ idea.author.username }} on {{ idea.date_published }}</div>
 <div>{{ idea.description|linebreaks }}</div>
-<div>I want {{ idea.author_wants }}</div>
+<div>{{ idea.author_wants }}</div>
 
 {% if idea.author_wants == 'help! Work with me to make this idea a reality, email me to get started.' %}
     <div>If you're interested reach out to me at {{ idea.author.email|urlize }}</div>
