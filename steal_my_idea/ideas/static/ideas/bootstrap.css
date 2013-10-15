@@ -51,6 +51,10 @@ p {
   margin-bottom: 15px;
 }
 
+p i {
+  margin-right: 5px;	
+}
+
 #inner-container {
   max-width: 610px;	
 }
