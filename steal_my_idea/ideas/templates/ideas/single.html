@@ -1,7 +1,7 @@
 {% include 'ideas/header.html' %}
 <div id="inner-container">
-<h1>{{ idea.title }}</h1>
-<div>Up Votes {{ idea.votes }}</div>
+  <h1>{{ idea.title }}</h1>
+  <div>Up Votes {{ idea.votes }}</div>
 
 {% if user.is_authenticated %}
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -16,33 +16,33 @@
     </a>
 {% endif %}
 
-<p>Posted by {{ idea.author.username }} on {{ idea.date_published }}</p>
-<div>{{ idea.description|linebreaks }}</div>
-<p>{{ idea.author_wants }}.</p>
+  <p>Posted by {{ idea.author.username }} on {{ idea.date_published }}</p>
+  <div>{{ idea.description|linebreaks }}</div>
+  <p>{{ idea.author_wants }}.</p>
 
 {% if idea.author_wants == 'Help! Work with me to make this idea a reality' %}
-    <div>You can reach out to me at {{ idea.author.email|urlize }}</div>
+  <div>You can reach out to me at {{ idea.author.email|urlize }}</div>
 {% endif %}
 
-<!-- START: Livefyre Embed -->
-<div id="livefyre-comments"></div>
-<script type="text/javascript" src="http://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js"></script>
-<script type="text/javascript">
-(function () {
-    var articleId = fyre.conv.load.makeArticleId(null);
-    fyre.conv.load({}, [{
-        el: 'livefyre-comments',
-        network: "livefyre.com",
-        siteId: "345446",
-        articleId: articleId,
-        signed: false,
-        collectionMeta: {
-            articleId: articleId,
-            url: fyre.conv.load.makeCollectionUrl(),
-        }
-    }], function() {});
-}());
-</script>
-<!-- END: Livefyre Embed -->
+  <!-- START: Livefyre Embed -->
+  <div id="livefyre-comments"></div>
+  <script type="text/javascript" src="http://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js"></script>
+  <script type="text/javascript">
+  (function () {
+      var articleId = fyre.conv.load.makeArticleId(null);
+      fyre.conv.load({}, [{
+          el: 'livefyre-comments',
+          network: "livefyre.com",
+          siteId: "345446",
+          articleId: articleId,
+          signed: false,
+          collectionMeta: {
+              articleId: articleId,
+              url: fyre.conv.load.makeCollectionUrl(),
+          }
+      }], function() {});
+  }());
+  </script>
+  <!-- END: Livefyre Embed -->
 </div>
 {% include 'ideas/footer.html' %}
