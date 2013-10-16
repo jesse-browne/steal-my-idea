@@ -63,7 +63,7 @@ p i, span i, div i {
   max-width: 610px;	
 }
 
-.row .span .btn {
+.row .span .btn, .row .span3 .btn {
   margin-top: 0;
 }
 
