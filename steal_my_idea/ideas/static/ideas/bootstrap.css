@@ -39,6 +39,10 @@ footer, .push {
 
 /** End Sticky Footer **/
 
+header ul#right i {
+  font-size: 1.3em;
+}
+
 footer {
   margin-top: 1.5em;
   width: 100%;
@@ -57,6 +61,10 @@ p i, span i, div i {
 
 #inner-container {
   max-width: 610px;	
+}
+
+.row .span .btn {
+  margin-top: 0;
 }
 
 footer nav ul {
@@ -79,7 +87,7 @@ footer nav ul li a:hover {
   text-decoration: none;
 }
 
-.right {
+.right, #right {
   float: right;
 }
 

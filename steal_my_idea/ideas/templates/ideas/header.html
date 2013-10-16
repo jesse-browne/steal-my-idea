@@ -24,24 +24,29 @@
 <![endif]-->
 
 <div class="wrapper">
-  <div class="github-fork-ribbon-wrapper right">
-    <div class="github-fork-ribbon">
-      <a href="https://github.com/jesse-browne/steal-my-idea" target="_blank">Fork me on GitHub</a>
-    </div>
-  </div>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="brand" href="{% url 'ideas:home' %}">Steal My Idea!</a>
-        <div class="nav-collapse collapse">
+  <header>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
           <nav>
+            <a class="brand" href="{% url 'ideas:home' %}">Steal My Idea!</a>
             <ul class="nav">
               <li><a href="{% url 'admin:index' %}ideas/idea/add/">Add</a></li>
               <li><a href="{% url 'ideas:index' %}">Find</a></li>
             </ul>
-          </nav>         
-        </div><!--/.nav-collapse -->
+            <ul class="nav" id="right">
+              <li><a href="https://www.facebook.com/stealmyidea.co"><i class="icon-facebook-sign"></i></a></li>
+              <li><a href="https://github.com/jesse-browne/steal-my-idea" title="Fork me on GitHub"><i class="icon-github"></i></a></li>
+{% if user.is_authenticated %}
+              <li><a href="#">{{ user.username }}</a></li>
+{% else %}
+              <li><a href="{% url 'ideas:adduser' %}">Register</a></li>
+              <li><a href="/admin/login/?next={% url 'ideas:home' %}">Log In</a></li>
+{% endif %}
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
-  </div>
+  </header>  
   <div class="container">
