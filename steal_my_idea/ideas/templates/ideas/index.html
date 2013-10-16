@@ -3,16 +3,18 @@
 <div id="inner-container">
 {% if latest_idea_list %}
   <h2>Awesome ideas for the taking</h2>
-  <div class="row">
+  
     {% for idea in latest_idea_list %}
-    <div class="span">
-      <h4><a href="{% url 'ideas:single' idea.id %}">{{ idea.title }}</a></h4>
-      <p>{{ idea.description|slice:':75' }}...</p>
-      <p class="right"><i class="icon-thumbs-up icon-2x"></i>{{ idea.votes }}</p>
-      <p><a class="btn" href="{% url 'ideas:single' idea.id %}">View details &raquo;</a></p>
-    </div>
+    <div class="row">
+      <div class="span" id="full-width">
+        <h4><a href="{% url 'ideas:single' idea.id %}">{{ idea.title }}</a></h4>
+        <p>{{ idea.description|slice:':75' }}...</p>
+        <p class="right"><i class="icon-thumbs-up icon-2x"></i>{{ idea.votes }}</p>
+        <p><a class="btn" href="{% url 'ideas:single' idea.id %}">View details &raquo;</a></p>
+      </div>
+    </div>  
     {% endfor %}
-  </div>  
+
 {% else %}
   <p>There are no ideas to steal right now :( </p>
 {% endif %}
