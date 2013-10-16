@@ -5,6 +5,7 @@ from django.views import generic
 from forms import UserForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User, Group
+from django import template
 
 from ideas.models import Idea, Page
 
@@ -39,6 +40,9 @@ class ResultsView(generic.DetailView):
 class ProfileView(generic.DetailView):
     model = User
     template_name = 'ideas/profile.html'
+
+def profile(request, user_id):
+    return HttpResponse('ideas:profile', user_id)
 
 def upvote(request, idea_id):
     i = get_object_or_404(Idea, pk=idea_id)
@@ -86,4 +90,5 @@ def adduser(request):
 
 def googleverify(request):
     return render(request, 'ideas/google48059d14ad7e617c.html')
+
     

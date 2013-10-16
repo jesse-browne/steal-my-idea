@@ -16,7 +16,7 @@
     </a>
 {% endif %}
   </div>
-  <p>Posted by {{ idea.author.username }} on {{ idea.date_published }}</p>
+  <p>Posted by <a href="{% url 'ideas:profile' idea.author.id %}">{{ idea.author.username }}</a> on {{ idea.date_published }}</p>
   <div>{{ idea.description|linebreaks }}</div>
 
 {% if idea.author_wants == 'Help! Work with me to make this idea a reality' %}
