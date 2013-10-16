@@ -10,6 +10,7 @@
  * Colour panel
  * Light Orange #
  * Dark Orange #
+ * Brown #A64B00
  * Pink #
  * Yellow #
  */
@@ -342,13 +343,13 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #BF3030;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #005580;
+  color: #A60000;
   text-decoration: underline;
 }
 
