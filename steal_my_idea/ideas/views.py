@@ -35,6 +35,10 @@ class PageView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Idea
     template_name = 'ideas/results.html'
+    
+class ProfileView(generic.DetailView):
+    model = User
+    template_name = 'ideas/profile.html'
 
 def upvote(request, idea_id):
     i = get_object_or_404(Idea, pk=idea_id)
