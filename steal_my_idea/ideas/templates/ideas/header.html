@@ -41,7 +41,7 @@
               <li><a href="{% url 'ideas:profile' user.id %}" title="My {{ user.username }} profile page">{{ user.username }}</a></li>
               <li><a href="{% url 'admin:index' %}ideas/idea/" title="Edit my ideas"><i class="icon-edit"></i></a></li>
               <li><a href="{% url 'admin:index' %}" title="My admin interface"><i class="icon-cog"></i></a></li>
-              <li><a href="{% url 'admin:logout' %}" title="Log out"><i class="icon-signout"></i></a></li>
+              <li><a href="{% url 'admin:logout' %}?next=/" title="Log out"><i class="icon-signout"></i></a></li>
 {% else %}
               <li><a href="{% url 'ideas:adduser' %}">Register</a></li>
               <li><a href="/admin/login/?next={% url 'ideas:home' %}">Log In</a></li>
