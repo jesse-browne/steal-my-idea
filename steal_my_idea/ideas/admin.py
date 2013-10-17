@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
+
 from ideas.models import Idea, Page
 
 class IdeaAdmin(admin.ModelAdmin):
@@ -10,6 +12,11 @@ class IdeaAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.author = request.user
         obj.save()
+        
+    def queryset(self, request):
+        if request.user.is_superuser:
+            return Idea.objects.all()
+        return Idea.objects.filter(author=request.user)
 
 class PageAdmin(admin.ModelAdmin):
     list_display = ('heading', 'date_published')
