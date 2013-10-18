@@ -40,6 +40,10 @@ footer, .push {
 
 /** End Sticky Footer **/
 
+header {
+  font-size: 1.1em;
+}
+
 header ul#right i {
   font-size: 1.3em;
 }
