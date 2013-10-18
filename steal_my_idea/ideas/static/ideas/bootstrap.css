@@ -119,6 +119,16 @@ footer nav ul li a:hover {
   margin: 5px 0;
 }
 
+/** Comments **/
+
+#livefyre-comments {
+  height: 350px;	
+}
+
+.fyre-editor {
+  height: 125px;	
+}
+
 /** End non-bootstrap additions **/
 
 .clearfix {
