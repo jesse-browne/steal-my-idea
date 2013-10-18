@@ -3,30 +3,52 @@
   <h1>{{ idea.title }}</h1>
   <div class="right" id="right-corner">
     <p><i class="icon-thumbs-up icon-2x"></i>{{ idea.votes }}</p>
-{% if user.is_authenticated %}
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-    <form action="{% url 'ideas:upvote' idea.id %}" method="post" >
-	{% csrf_token %}
-	  <input type="hidden" name="vote" id="vote" value ="{{ idea.id }}" />
-	  <input type="submit" value="+1" />
-	</form>
-{% else %}
-    <a href="/admin/login/?next={% url 'ideas:single' idea.id %}upvote/">
-      <input type="button" value="Log In To +1" />
-    </a>
-{% endif %}
+    {% if user.is_authenticated %}
+      {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+      <form action="{% url 'ideas:upvote' idea.id %}" method="post" >
+	    {% csrf_token %}
+	    <input type="hidden" name="vote" id="vote" value ="{{ idea.id }}" />
+	    <input type="submit" value="+1" />
+	  </form>
+    {% else %}
+      <a href="/admin/login/?next={% url 'ideas:single' idea.id %}upvote/">
+        <input type="button" value="Log In To +1" />
+      </a>
+    {% endif %}
+	<div id="sharebar" class="left">
+	  <div id="sharebox">		    	
+		<div>
+	      <a href="https://twitter.com/share" 
+	         class="twitter-share-button" 
+	         data-text="{{ idea.title }}" 
+	         data-hashtags="stealmyidea" 
+	         data-count="vertical">Tweet</a>
+		</div>
+		<div>
+		  <div class="fb-like" 
+			   data-width="52" 
+			   data-height="52" 
+			   data-colorscheme="light" 
+			   data-layout="box_count" 
+			   data-action="like" 
+			   data-show-faces="true" 
+			   data-send="true"></div>
+		</div>	
+		<div>
+		  <g:plusone size="tall"></g:plusone>
+		</div>
+	  </div>
+	</div>
   </div>
   <p>Posted by <a href="{% url 'ideas:profile' idea.author.id %}">{{ idea.author.username }}</a> on {{ idea.date_published }}</p>
   <div>{{ idea.description|linebreaks }}</div>
 
-{% if idea.author_wants == 'Help! Work with me to make this idea a reality' %}
-  <p><i class="icon-group icon-2x"></i>{{ idea.author_wants }}.</p>
-  <p><i class="icon-envelope icon-2x"></i>You can reach out to me by making a comment at <a href="{% url 'ideas:profile' idea.author.id %}">{{ idea.author.username }}</a>.</p>
-{% else %}
-  <p><i class="icon-gift icon-2x"></i>{{ idea.author_wants }}.</p>
-{% endif %}
-
-{% include 'ideas/comments.html' %}
-
+  {% if idea.author_wants == 'Help! Work with me to make this idea a reality' %}
+    <p><i class="icon-group icon-2x"></i>{{ idea.author_wants }}.</p>
+    <p><i class="icon-envelope icon-2x"></i>You can reach out to me by making a comment at <a href="{% url 'ideas:profile' idea.author.id %}">{{ idea.author.username }}</a>.</p>
+  {% else %}
+    <p><i class="icon-gift icon-2x"></i>{{ idea.author_wants }}.</p>
+  {% endif %}
+  {% include 'ideas/comments.html' %}
 </div>
 {% include 'ideas/footer.html' %}

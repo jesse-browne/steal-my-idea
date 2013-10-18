@@ -96,9 +96,23 @@ footer nav ul li a:hover {
   float: right;
 }
 
+.left, #left {
+  float: left;	
+}
+
 #right-corner {
   margin-left: 50px;
   margin-bottom: 20px;	
+}
+
+/** Social media share bar **/
+
+#sharebar {
+  margin-top: 5px;	
+}
+
+#sharebox div {
+  margin: 5px 0;
 }
 
 /** End non-bootstrap additions **/
