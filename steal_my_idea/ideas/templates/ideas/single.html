@@ -43,7 +43,7 @@
 
   {% if idea.author_wants == 'Help! Work with me to make this idea a reality' %}
     <p><i class="icon-group icon-2x"></i>{{ idea.author_wants }}.</p>
-    <p><i class="icon-envelope icon-2x"></i>You can reach out to me by making a comment at <a href="{% url 'ideas:profile' idea.author.id %}">{{ idea.author.username }}</a>.</p>
+    <p><i class="icon-envelope icon-2x"></i>You can reach out to me in the comments.</p>
   {% else %}
     <p><i class="icon-gift icon-2x"></i>{{ idea.author_wants }}.</p>
   {% endif %}
