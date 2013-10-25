@@ -12,8 +12,6 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    #url(r'^$', include('ideas.urls', namespace='ideas')),
-    #url(r'^ideas-to-steal/', include('ideas.urls', namespace='ideas')),
     url(r'^', include('ideas.urls', namespace='ideas')),
 
     # Uncomment the next line to enable the admin:

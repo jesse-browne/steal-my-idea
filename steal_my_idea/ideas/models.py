@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Define models.
-
 class Idea(models.Model):
+    """The framework of an idea!"""
+    
     HELP = 'Help! Work with me to make this idea a reality'
     EXECUTION = 'Someone, anyone to make take this idea and make it a reality'
     AUTHOR_WANTS_OPTIONS = (
@@ -22,6 +22,8 @@ class Idea(models.Model):
         return self.title
 
 class Page(models.Model):
+    """For single pages like About, Contact etc"""
+    
     heading = models.CharField(max_length=200)
     date_published = models.DateTimeField(auto_now_add=True)
     text = models.TextField()

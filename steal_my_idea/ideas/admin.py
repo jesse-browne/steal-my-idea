@@ -11,6 +11,7 @@ class IdeaAdmin(admin.ModelAdmin):
     Shows all ideas to admins and shows non-admins only their own ideas.
     Re-directs back to front end on successful idea creation if Save option selected.
     """
+    
     list_display = ('title', 'date_published')
     list_filter = ['date_published']
     search_fields = ['title']
@@ -31,6 +32,7 @@ class IdeaAdmin(admin.ModelAdmin):
 
 class PageAdmin(admin.ModelAdmin):
     """Provides search, filter by date and lists pages in order of date published"""
+    
     list_display = ('heading', 'date_published')
     list_filter = ['date_published']
     search_fields = ['heading']
