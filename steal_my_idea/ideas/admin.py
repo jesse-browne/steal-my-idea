@@ -21,7 +21,7 @@ class IdeaAdmin(admin.ModelAdmin):
         return Idea.objects.filter(author=request.user)
     
     def response_add(self, request, obj, post_url_continue=None):
-        """This makes the response after adding go to another apps changelist for some model"""
+        """Redirect to list view of most recent ideas on successful creation of idea"""
         return HttpResponseRedirect(reverse("ideas:index"))
 
 
