@@ -6,6 +6,11 @@ from django.http import HttpResponseRedirect, HttpResponse
 from ideas.models import Idea, Page
 
 class IdeaAdmin(admin.ModelAdmin):
+    """
+    Sets current authenticated user as idea author.
+    Shows all ideas to admins and shows non-admins only their own ideas.
+    Re-directs back to front end on successful idea creation if Save option selected.
+    """
     list_display = ('title', 'date_published')
     list_filter = ['date_published']
     search_fields = ['title']
@@ -21,11 +26,11 @@ class IdeaAdmin(admin.ModelAdmin):
         return Idea.objects.filter(author=request.user)
     
     def response_add(self, request, obj, post_url_continue=None):
-        """Redirect to list view of most recent ideas on successful creation of idea"""
         return HttpResponseRedirect(reverse("ideas:index"))
 
 
 class PageAdmin(admin.ModelAdmin):
+    """Provides search, filter by date and lists pages in order of date published"""
     list_display = ('heading', 'date_published')
     list_filter = ['date_published']
     search_fields = ['heading']
