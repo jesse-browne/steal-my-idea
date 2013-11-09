@@ -35,11 +35,12 @@ class IdeaViewTests(TestCase):
             ['<Idea: Some idea>']
         )
         
-#    def test_index_view_with_two_ideas(self):        
-#        create_idea(title='Some idea', description='Lorem ipsum')
-#        create_idea(title='Another idea', description='Lorem')
-#        response = self.client.get(reverse('ideas:index'))
-#        self.assertQuerysetEqual(
-#            response.context['latest_idea_list'], 
-#            ['<Idea: Another idea>', '<Idea: Some idea>']
-#        )
+    def test_index_view_with_two_ideas(self):      
+        new_user = User.objects.create_user('Timmy', 'timmy@jimmy.com', 'timmyspwd')  
+        create_idea(title='Some idea', description='Lorem ipsum', author=new_user)
+        create_idea(title='Another idea', description='Lorem', author=new_user)
+        response = self.client.get(reverse('ideas:index'))
+        self.assertQuerysetEqual(
+            response.context['latest_idea_list'], 
+            ['<Idea: Another idea>', '<Idea: Some idea>']
+        )
