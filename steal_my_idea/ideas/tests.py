@@ -9,16 +9,15 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from ideas.models import Idea
+from ideas.models import Page
 
 def create_idea(title, description, author):
     """Create idea with place holder title and description"""
     return Idea.objects.create(title=title, description=description, author=author)
 
-def create_page(heading, text):
-    """Create a page with heading and text"""
-    return Page.objects.create(heading=heading, text=text)
-
 class IdeaViewTests(TestCase):
+    """Test cases for index views of ideas"""
+    
     def test_index_view_with_no_ideas(self):
         """If no ideas show error message"""
         response = self.client.get(reverse('ideas:index'))
@@ -40,7 +39,8 @@ class IdeaViewTests(TestCase):
         create_idea(title='Some idea', description='Lorem ipsum', author=new_user)
         create_idea(title='Another idea', description='Lorem', author=new_user)
         response = self.client.get(reverse('ideas:index'))
-        self.assertQuerysetEqual(
-            response.context['latest_idea_list'], 
-            ['<Idea: Another idea>', '<Idea: Some idea>']
-        )
+        
+    def test_single_view(self):
+        new_user = User.objects.create_user('Timmy', 'timmy@jimmy.com', 'timmyspwd')
+        new_idea = create_idea(title='Some idea', description='Lorem ipsum', author=new_user)
+        response = self.client.get(reverse('ideas:single', args=(new_idea.id,)))
